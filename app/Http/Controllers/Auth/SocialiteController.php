@@ -156,11 +156,12 @@ class SocialiteController extends Controller
 
     private function setRolesFromClaim(string $provider, $user): bool
     {
-        $scopes = LibreNMSConfig::get('auth.socialite.scopes');
         $claims = LibreNMSConfig::get('auth.socialite.claims');
 
         if (LibreNMSConfig::get('auth.socialite.roles_claim')) {
-            $scopes = ['roles',...$scopes];
+            $scopes = ['roles'];
+        } else {
+            $scopes = LibreNMSConfig::get('auth.socialite.scopes');
         }
 
         if (is_array($scopes) &&
