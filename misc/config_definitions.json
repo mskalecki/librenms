@@ -430,16 +430,23 @@
                 "value.saml.entityid": "url"
             }
         },
-        "auth.socialite.scopes": {
+        "auth.socialite.roles_claim": {
             "group": "auth",
             "section": "socialite",
             "order": 4,
+            "type": "boolean",
+            "default": false
+        },
+        "auth.socialite.scopes": {
+            "group": "auth",
+            "section": "socialite",
+            "order": 5,
             "type": "array"
         },
         "auth.socialite.default_role": {
             "group": "auth",
             "section": "socialite",
-            "order": 5,
+            "order": 6,
             "type": "select",
             "default": "none",
             "options" : {
@@ -453,7 +460,7 @@
             "default": {},
             "group": "auth",
             "section": "socialite",
-            "order": 6,
+            "order": 7,
             "type": "group-role-map",
             "options": {
                 "groupPlaceholder": "Claim Group"

@@ -292,6 +292,10 @@ return [
                     'description' => 'Scopes that should be included with in the authentication request',
                     'help' => 'See https://laravel.com/docs/10.x/socialite#access-scopes',
                 ],
+                'roles_claim' => [
+                    'description' => 'Use Roles claim to map roles',
+                    'help' => 'Use Roles claim to map roles',
+                ],
             ],
         ],
         'auth_ad_base_dn' => [

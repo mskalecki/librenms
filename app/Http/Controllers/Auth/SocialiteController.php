@@ -159,6 +159,10 @@ class SocialiteController extends Controller
         $scopes = LibreNMSConfig::get('auth.socialite.scopes');
         $claims = LibreNMSConfig::get('auth.socialite.claims');
 
+        if (LibreNMSConfig::get('auth.socialite.roles_claim')) {
+            $scopes = ['roles',...$scopes];
+        }
+
         if (is_array($scopes) &&
             $this->socialite_user instanceof \Laravel\Socialite\AbstractUser &&
             ! empty($claims)
