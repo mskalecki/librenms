@@ -33,6 +33,7 @@ use Laravel\Socialite\Contracts\User as SocialiteUser;
 use Laravel\Socialite\Facades\Socialite;
 use LibreNMS\Config as LibreNMSConfig;
 use LibreNMS\Exceptions\AuthenticationException;
+use Log;
 
 class SocialiteController extends Controller
 {
@@ -163,6 +164,8 @@ class SocialiteController extends Controller
         } else {
             $scopes = LibreNMSConfig::get('auth.socialite.scopes');
         }
+        Log::ERROR('socialite claims', json_encode($this->socialite_user->getRaw()));
+        Log::ERROR('claims to match', json_encode($claims));
 
         if (is_array($scopes) &&
             $this->socialite_user instanceof \Laravel\Socialite\AbstractUser &&
